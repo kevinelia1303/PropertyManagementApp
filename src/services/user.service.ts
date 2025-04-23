@@ -88,10 +88,10 @@ const UserService = {
         role: user.role,
       }
       const access_token = sign(payload, SECRET_KEY as string, {
-        expiresIn: "1h",
+        expiresIn: "2h",
       }) // untuk refresh session token (taro di cookies)
       const session_token = sign(payload, SECRET_KEY as string, {
-        expiresIn: "5m",
+        expiresIn: "1h",
       })
 
       return {

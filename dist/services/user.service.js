@@ -119,10 +119,10 @@ const UserService = {
                 role: user.role,
             };
             const access_token = (0, jsonwebtoken_1.sign)(payload, config_1.SECRET_KEY, {
-                expiresIn: "1h",
+                expiresIn: "2h",
             }); // untuk refresh session token (taro di cookies)
             const session_token = (0, jsonwebtoken_1.sign)(payload, config_1.SECRET_KEY, {
-                expiresIn: "5m",
+                expiresIn: "1h",
             });
             return {
                 access_token,
