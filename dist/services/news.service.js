@@ -39,8 +39,7 @@ function GetAllNews(_a) {
             //   .leftJoinAndSelect("PurchaseRequest.itemIdId", "item")
             //   .offset((page - 1) * pageSize)
             const PRRepo = data_source_1.PMADB.getRepository(news_entity_1.News);
-            const result = yield PRRepo.createQueryBuilder("PurchaseRequest")
-                .leftJoinAndSelect("PurchaseRequest.itemId", "item")
+            const result = yield PRRepo.createQueryBuilder("news")
                 // .offset((page - 1) * pageSize)
                 .offset(skipData)
                 .limit(pageSize)

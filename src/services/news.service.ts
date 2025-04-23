@@ -34,8 +34,7 @@ async function GetAllNews({
     //   .offset((page - 1) * pageSize)
 
     const PRRepo = PMADB.getRepository(News)
-    const result = await PRRepo.createQueryBuilder("PurchaseRequest")
-      .leftJoinAndSelect("PurchaseRequest.itemId", "item")
+    const result = await PRRepo.createQueryBuilder("news")
       // .offset((page - 1) * pageSize)
       .offset(skipData)
       .limit(pageSize)
