@@ -21,6 +21,12 @@ __decorate([
 ], News.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)({
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], News.prototype, "category", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
         nullable: false,
     }),
     __metadata("design:type", String)
@@ -31,6 +37,12 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], News.prototype, "description", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], News.prototype, "imageUrl", void 0);
 __decorate([
     (0, typeorm_1.DeleteDateColumn)(),
     __metadata("design:type", Date)

@@ -12,6 +12,11 @@ export class News {
   id: string
 
   @Column({
+    nullable: true,
+  })
+  category: string
+
+  @Column({
     nullable: false,
   })
   title: string
@@ -20,6 +25,11 @@ export class News {
     nullable: false,
   })
   description: string
+
+  @Column({
+    nullable: true,
+  })
+  imageUrl: string
 
   @DeleteDateColumn()
   deletedAt?: Date

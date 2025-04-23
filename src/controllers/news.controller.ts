@@ -28,7 +28,7 @@ async function GetAllNews(req: Request, res: Response, next: NextFunction) {
     })
     res.status(200).json({
       message: "Success",
-      PurchaseRequest: data,
+      News: data,
     })
   } catch (error) {
     next(error)
