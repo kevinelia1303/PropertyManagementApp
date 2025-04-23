@@ -8,6 +8,7 @@ import { ErrorMiddleware } from "./middlewares/error.middleware"
 
 // router
 import UserRouter from "./routers/user.router"
+import NewsRouter from "./routers/news.router"
 
 const PORT = port || 8080
 const app: Application = express()
@@ -18,6 +19,7 @@ app.use(cors(corsOptions))
 app.use(express.json()) // untuk parsing json
 
 app.use("/auth", UserRouter)
+app.use("/news", NewsRouter)
 
 app.use(ErrorMiddleware)
 

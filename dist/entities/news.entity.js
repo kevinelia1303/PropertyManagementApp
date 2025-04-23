@@ -9,51 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.News = void 0;
 const typeorm_1 = require("typeorm");
-const news_entity_1 = require("./news.entity");
-let User = class User {
+const user_entity_1 = require("./user.entity");
+let News = class News {
 };
-exports.User = User;
+exports.News = News;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)("uuid"),
     __metadata("design:type", String)
-], User.prototype, "id", void 0);
+], News.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)({
         nullable: false,
     }),
     __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], News.prototype, "title", void 0);
 __decorate([
     (0, typeorm_1.Column)({
         nullable: false,
     }),
     __metadata("design:type", String)
-], User.prototype, "password", void 0);
+], News.prototype, "description", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], User.prototype, "name", void 0);
+    (0, typeorm_1.DeleteDateColumn)(),
+    __metadata("design:type", Date)
+], News.prototype, "deletedAt", void 0);
 __decorate([
-    (0, typeorm_1.Column)({
-        type: "enum",
-        enum: ["USER", "ADMIN", "MANAGER"],
-        default: "USER",
-    }),
-    __metadata("design:type", String)
-], User.prototype, "role", void 0);
-__decorate([
-    (0, typeorm_1.Column)({
-        nullable: true,
-    }),
-    __metadata("design:type", String)
-], User.prototype, "avatar", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => news_entity_1.News, (news) => news.createdby) // pasang relation di 2 tempat
-    ,
-    __metadata("design:type", Array)
-], User.prototype, "news_fkey", void 0);
-exports.User = User = __decorate([
-    (0, typeorm_1.Entity)({ name: "user" })
-], User);
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.news_fkey),
+    __metadata("design:type", user_entity_1.User)
+], News.prototype, "createdby", void 0);
+exports.News = News = __decorate([
+    (0, typeorm_1.Entity)({ name: "news" })
+], News);

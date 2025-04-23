@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { News } from "./news.entity"
 @Entity({ name: "user" })
 export class User {
   @PrimaryGeneratedColumn("uuid")
@@ -28,4 +29,7 @@ export class User {
     nullable: true,
   })
   avatar?: string
+
+  @OneToMany(() => News, (news) => news.createdby) // pasang relation di 2 tempat
+  news_fkey: News[]
 }
